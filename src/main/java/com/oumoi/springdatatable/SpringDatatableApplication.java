@@ -30,21 +30,21 @@ public class SpringDatatableApplication {
 			public void run(String... args) throws Exception {
 
 
+				if (studentRepository.count() < 1000){
+					for (int i = 0; i < 1000; i++) {
+						Faker faker  = new Faker(new Locale("en-US"));
 
-				for (int i = 0; i < 1000; i++) {
-					Faker faker  = new Faker(new Locale("en-US"));
+						String firstname  =  faker.name().firstName();
+						String lastname   =  faker.name().lastName();
 
-					String firstname  =  faker.name().firstName();
-					String lastname   =  faker.name().lastName();
+						Student student =  new Student();
+						student.setEmail(firstname+lastname+"@gmail.com");
+						student.setFirstName(firstname);
+						student.setLastName(lastname);
 
-					Student student =  new Student();
-					student.setEmail(firstname+lastname+"@gmail.com");
-					student.setFirstName(firstname);
-					student.setLastName(lastname);
-
-					studentRepository.save(student);
+						studentRepository.save(student);
+					}
 				}
-
 			}
 		};
 	}
