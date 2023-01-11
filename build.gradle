@@ -28,6 +28,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'com.github.javafaker:javafaker:1.0.2'
+	implementation 'com.github.darrachequesne:spring-data-jpa-datatables:6.0.0'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+
 
 }
 
